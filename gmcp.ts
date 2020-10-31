@@ -1,4 +1,4 @@
-import { TcpClient, TcpServer } from "./deps.ts";
+import { api } from "./deps.ts";
 import { buildGMCP, parseGMCPSupports, Option } from "./deps.ts";
 import { env } from "./deps.ts";
 
@@ -7,12 +7,12 @@ function log(...args: any[]): void {
 }
 
 export const __id = "gmcp";
-export async function __init(context: { [key: string]: any; }) {
-  context.server.addListener("connect", async function (this: TcpServer, client: TcpClient) {
+export async function __init(context: api.IContext) {
+  context.server.addListener("connect", async function (this: api.TcpServer, client: api.TcpClient) {
     client.parser.options.support(Option.GMCP);
     client.parser.WILL(Option.GMCP);
   });
-  context.server.addListener("gmcp", async function (this: TcpClient, namespace: string, data: string | string[] | { [key: string]: any }) {
+  context.server.addListener("gmcp", async function (this: api.TcpClient, namespace: string, data: string | string[] | { [key: string]: any }) {
     switch (namespace) {
       case "Core.Hello":
         data = <{ [key: string]: any }>(data);
