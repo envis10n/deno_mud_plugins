@@ -1,4 +1,3 @@
-import { Collection } from "https://raw.githubusercontent.com/envis10n/deno_mud/main/src/storage.ts";
 import { api } from "./deps.ts";
 
 interface IStorageDemo {
