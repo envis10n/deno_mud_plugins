@@ -1,4 +1,4 @@
-import { api } from "./deps.ts";
+import * as api from "https://raw.githubusercontent.com/envis10n/deno_mud/main/src/plugin_api.ts";
 
 interface IStorageDemo {
   test: string;

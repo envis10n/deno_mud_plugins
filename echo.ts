@@ -1,4 +1,4 @@
-import { api } from "./deps.ts";
+import * as api from "https://raw.githubusercontent.com/envis10n/deno_mud/main/src/plugin_api.ts";
 export const __id = "echo";
 export async function __init(context: api.IContext) {
   context.server.addListener("connect", async function (this: api.TcpServer, client: api.TcpClient) {

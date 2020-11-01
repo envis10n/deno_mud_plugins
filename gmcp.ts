@@ -1,6 +1,5 @@
-import { api } from "./deps.ts";
-import { buildGMCP, parseGMCPSupports, Option } from "./deps.ts";
-import { env } from "./deps.ts";
+import * as api from "https://raw.githubusercontent.com/envis10n/deno_mud/main/src/plugin_api.ts";
+import { buildGMCP, parseGMCPSupports, Option, env } from "./deps.ts";
 
 function log(...args: any[]): void {
   console.log("[GMCP]", ...args);
